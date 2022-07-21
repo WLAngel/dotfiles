@@ -12,5 +12,6 @@
 	rebase = false
 [core]
 	pager = less
+	quotepath = false
 [hub]
 	protocol = ssh
