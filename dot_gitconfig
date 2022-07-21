@@ -1,0 +1,16 @@
+[user]
+	email = akloratok@gmail.com
+	name = WLAngel
+	username = WLAngel
+[pager]
+	branch = false
+[credential]
+	helper = osxkeychain
+[rerere]
+	enabled = true
+[pull]
+	rebase = false
+[core]
+	pager = less
+[hub]
+	protocol = ssh

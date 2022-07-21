@@ -1,0 +1,170 @@
+"
+set encoding=utf8
+set fileencoding=utf8
+set fileencodings=ucs-bom,utf8,cp950,gbk,latin1
+set nobomb
+set noswapfile
+
+" leader
+let mapleader = " "
+nnoremap <Space> <Nop>
+
+" search
+set ignorecase
+set hlsearch
+set incsearch
+set smartcase
+
+" ui
+set autoread
+set cursorline
+set laststatus=2
+set lazyredraw
+set list
+set listchars=tab:▷⋅,trail:·
+set mouse=
+set number
+set redrawtime=10000
+set relativenumber
+set ruler
+set scrolloff=4
+set showmatch
+set splitbelow
+set splitright
+set wildmenu
+
+" edit
+set autoindent
+set backspace=indent,eol,start
+set nofoldenable
+set nojoinspaces
+
+" tab
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+"
+set nocompatible
+set secure
+set updatetime=100
+set timeout
+set ttimeout
+set timeoutlen=1000
+set ttimeoutlen=50
+syntax on
+"
+
+" plugins
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'
+Plug 'alker0/chezmoi.vim'
+" Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'liuchengxu/vista.vim'
+" Plug 'ludovicchabant/vim-gutentags'
+Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'Raimondi/delimitMate'
+Plug 'ryanoasis/vim-devicons'
+Plug 'sainnhe/edge'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-expand-region'
+Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
+
+call plug#end()
+
+" " colo
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set background=dark
+" colorscheme edge
+" let g:lightline = { 'colorscheme': 'edge' }
+" "
+
+" colo
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=dark
+" let g:edge_style = 'neon'
+let g:edge_disable_italic_comment = 1
+colorscheme edge
+let g:lightline = {'colorscheme' : 'edge'}
+"
+
+" nerdcommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+nmap gcc <plug>NERDCommenterToggle
+vmap gc <plug>NERDCommenterToggle
+
+" nerdtree
+let g:NERDTreeShowHidden = 1
+" Turn off default mappings
+let g:NERDCreateDefaultMappings = 0
+nmap <Leader>n <Esc>:<c-u>NERDTreeToggle<CR>
+
+" mapping
+map q: :q
+
+" vim-expand-region
+vmap <C-v> <Plug>(expand_region_shrink)
+vmap v <Plug>(expand_region_expand)
+
+" yank paste
+nnoremap <silent> p p`]
+vnoremap <silent> p p`]
+vnoremap <silent> y y`]
+
+" black hole delete
+nnoremap x "_x
+nnoremap X "_X
+
+" clipboard cut copy paste
+vnoremap <Leader>x "+d
+vnoremap <Leader>c "+y`]
+vnoremap <Leader>v "+p`]
+nnoremap <Leader>v "+p`]
+
+"
+nnoremap <Leader>a <Esc>ggVG
+nnoremap <Leader>d <Esc>"_dd
+nnoremap <Leader>; <Esc>A;<Esc>
+nnoremap <Leader>, <Esc>A,<Esc>
+nnoremap <Leader>w :<c-u>tabclose<CR>
+nnoremap <Leader>j :<c-u>tabp<CR>
+nnoremap <Leader>k :<c-u>tabn<CR>
+
+" fzf
+nmap <Leader>t :<c-u>Files<CR>
+nmap <Leader>p :<c-u>GFiles<CR>
+
+" coc
+nnoremap <silent><nowait> <space>s :<c-u>call CocAction('diagnosticToggle')<CR>
