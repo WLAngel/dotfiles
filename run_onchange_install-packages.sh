@@ -8,4 +8,4 @@ brew bundle
 $(brew --prefix)/opt/fzf/install --all
 
 # nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/HEAD/install.sh | bash
