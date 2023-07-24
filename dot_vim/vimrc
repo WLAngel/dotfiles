@@ -65,6 +65,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'alker0/chezmoi.vim'
 " Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Exafunction/codeium.vim'
+Plug 'github/copilot.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -166,5 +168,9 @@ nnoremap <Leader>k :<c-u>tabn<CR>
 nmap <Leader>t :<c-u>Files<CR>
 nmap <Leader>p :<c-u>GFiles<CR>
 
-" coc
-nnoremap <silent><nowait> <space>s :<c-u>call CocAction('diagnosticToggle')<CR>
+" " coc
+" nnoremap <silent><nowait> <space>s :<c-u>call CocAction('diagnosticToggle')<CR>
+
+" copilot
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
